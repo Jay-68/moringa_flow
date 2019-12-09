@@ -15,6 +15,7 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+TEMPLATE_DIR = os.path.join(BASE_DIR,'templates') # as we have a templates folder in the project directly not in app.
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/2.1/howto/deployment/checklist/
@@ -31,6 +32,10 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'overflow',
+    'bootstrap4',
+    'accounts',
+    'groups',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -109,7 +114,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Africa/Nairobi'
 
 USE_I18N = True
 
@@ -120,5 +125,18 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
+AUTH_USER_MODEL = 'accounts.User'
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')] # as we have static directory in project directory not in app
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# how to tell django where to look for media files we copied and pasted from databases
+# but changed the string to the media directory
+LOGIN_REDIRECT_URL = 'about'
+LOGOUT_REDIRECT_URL = 'about'
+
+
+
+MEDIA_URL = '/media/'
+# where can they access the image, the image folder will be in the media directory
