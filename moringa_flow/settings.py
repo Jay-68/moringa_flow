@@ -75,8 +75,12 @@ WSGI_APPLICATION = 'moringa_flow.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'moringa_stack',
+		'USER': 'moringa',
+		'PASSWORD':'Access',
+		'HOST':'localhost',
+		'PORT':'5432',
     }
 }
 
