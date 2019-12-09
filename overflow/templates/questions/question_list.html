@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content%}
+{% for question in results %}
+<a href="{% url 'questions:question_single' slug=question.slug %}">{{ question.name }}</a>
+<br/>
+{% endfor %}
+
+{% endblock %}
