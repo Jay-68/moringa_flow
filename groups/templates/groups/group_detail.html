@@ -15,9 +15,9 @@
   {% else %}
   {% for question in group.questions.all %}
   <!-- Need for loop to go through each one -->
-  <ul>
-    <li><a href="{% url 'questions:question_single' slug=question.slug %}">{{question.name}}</a></li>
-  </ul>
+  <ol>
+    <li class="font-weight-bold"><a href="{% url 'questions:question_single' slug=question.slug %}">{{question.name}}</a></li>
+  </ol>
   <!-- This is used to inject a html file into the middle of this block, similar to extends -->
   {% endfor %}
   {% endif %}
