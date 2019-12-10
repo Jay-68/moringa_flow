@@ -5,56 +5,20 @@
 {% block content %}
 
 <div class="container">
-    <form method="POST" enctype = "multipart/form-data">
-      {% csrf_token %}
-      {% bootstrap_form form %}
-      <input type="submit" class = 'btn btn-primary' value="Sign Up">
-    </form>
-    </div>
-
-<!-- <div class="container">
   <div class="row d-flex justify-content-center">
-    <div class="col-lg-6"> -->
-      <!-- Card -->
-      <!-- <div class="card mx-xl-5"> -->
-
-        <!-- Card body -->
-        <!-- <div class="card-body"> -->
-
-          <!-- Default form subscription -->
-          <!-- <form method="POST">
-            <h4 class="h4 text-center pb-2">MoringaFlow</h4>
-            <h4 class="text-center">Sign Up</h4> -->
-            <!-- <hr> -->
-            <!-- Default input name -->
-            <!-- {{ form.username|as_crispy_field }} -->
-
-            <!-- <br> -->
-
-            <!-- Default input email -->
-            <!-- {{ form.email|as_crispy_field }}
-            {{ form.password1|as_crispy_field }}
-            {{ form.password2|as_crispy_field }}
-            {{ form.bio|as_crispy_field }}
-            {{ form.image|as_crispy_field }}
-
-            <div class="text-center py-4 mt-3">
-              <button class="btn btn-sm btn-dark-green" type="submit">Register</button>
-            </div>
-          </form> -->
-          <!-- Default form subscription -->
-
-        <!-- </div> -->
-        <!-- Card body -->
-
-      <!-- </div> -->
-      <!-- Card -->
-    <!-- </div> -->
-
-  <!-- </div>
-</div> -->
-
-
+    <div class="col-lg-6">
+      <form method="POST" enctype="multipart/form-data">
+    <h4 class="h4 text-center pb-2">MoringaFlow</h4>
+    <h4 class="text-center">Sign Up</h4>
+    <hr>
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input type="submit" class='btn btn-sm btn-dark-green' value="Sign Up">
+  </form>
+    </div>
+  </div>
+  
+</div>
 
 
 {% endblock %}
