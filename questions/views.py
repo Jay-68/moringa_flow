@@ -103,7 +103,7 @@ def UserProfileQuestion(request, slug):
     pageAns = request.GET.get('page2')
     answers = paginatorAnswer.get_page(pageAns)
 
-    return render(request, 'questions/user_profile2.html', {'user_question': questions, 'user_answer': answers, 'user': user})
+    return render(request, 'questions/user_profile.html', {'user_question': questions, 'user_answer': answers, 'user': user})
 
 
 @login_required

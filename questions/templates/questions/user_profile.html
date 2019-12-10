@@ -1,40 +1,54 @@
 {% extends 'base.html' %}
 {% block content %}
-<h1>{{user.username}} 's profile</h1>
-<h2>Name: {{user.first_name }} {{user.last_name}}</h2>
-<h2>Bio: {{ user.bio }}</h2>
+<h3 class="text-center">{{user.username}} 's profile</h3>
 <hr>
-{% if user.image %}
-<img src="{{user.image.url}}" class="img-fluid" height=150 width=150 alt='No Image Uploaded'>
-{% else %}
-<p>No file uploaded</p>
-{% endif %}
-<h2>Location:{{user.location}}</h2>
+<div class="container">
+    <!-- Card -->
+    <div class="card testimonial-card">
 
-<h2>List of Questions asked by this user</h2>
-{% for question in user_question %}
+        <!-- Background color -->
+        <div class="card-up"></div>
 
-<a href="{% url 'questions:question_single' slug=question.slug%}">{{question.name}}</a>
-<br />
+        <!-- Avatar -->
+        <div class="avatar mx-auto white">
+            <img src="{{user.image.url}}" width="200px" height="200px" class="mt-3 mb-3 rounded-circle" alt="avatar">
+        </div>
+
+        <!-- Content -->
+        <div class="card-body grey darken-1">
+            <!-- Name -->
+            <h4 class="font-weight-bold text-center card-title">{{user.username}}</h4>
+            <!-- Quotation -->
+            <p class="text-center">{{ user.bio }}</p>
+            <hr>
+
+            <h2>Questions Asked </h2>
+
+            {% for question in user_question %}
+
+            <a href="{% url 'questions:question_single' slug=question.slug%}">{{question.name}}</a>
+
+            {% endfor %}
+
+            <h2>Questions Answered</h2>
+            {% for answer in user_answer %}
+
+            <a href="{% url 'questions:question_single' slug=answer.question.slug %}">{{answer.body}}</a>
+            <br />
 
 
+            {% endfor %}
+        </div>
 
-{% endfor %}
-<h2>List of Answers made by this user</h2>
-{% for answer in user_answer %}
+    </div>
+    <!-- Card -->
+</div>
 
-<a href="{% url 'questions:question_single' slug=answer.question.slug %}">{{answer.body}}</a>
-<br />
-
-
-{% endfor %}
-ew
-<!--
 <div class="pagination">
     <span class="step-links">
         {% if user_question.has_previous %}
-            <a href="?page=1">&laquo; first</a>
-            <a href="?page={{ user_question.previous_page_number }}">previous</a>
+        <a href="?page=1">&laquo; first</a>
+        <a href="?page={{ user_question.previous_page_number }}">previous</a>
         {% endif %}
 
         <span class="current">
@@ -42,10 +56,10 @@ ew
         </span>
 
         {% if user_question.has_next %}
-            <a href="?page={{ user_question.next_page_number }}">next</a>
-            <a href="?page={{ user_question.paginator.num_pages }}">last &raquo;</a>
+        <a href="?page={{ user_question.next_page_number }}">next</a>
+        <a href="?page={{ user_question.paginator.num_pages }}">last &raquo;</a>
         {% endif %}
     </span>
 </div>
---> jj
+
 {% endblock %}
