@@ -26,7 +26,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
 	path('accounts/', include('accounts.urls')),
     path('accounts/', include('django.contrib.auth.urls')),
-	path('about/',TemplateView.as_view(template_name="about.html"), name="about"),
+	path('index/',TemplateView.as_view(template_name="index.html"), name="index"),
 	path('',views.GroupList.as_view(),name='home'),
 	path('groups/', include('groups.urls')),
 	path('questions/', include('questions.urls')),

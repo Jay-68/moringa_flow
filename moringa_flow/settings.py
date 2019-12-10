@@ -137,8 +137,8 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')] # as we have static directo
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # how to tell django where to look for media files we copied and pasted from databases
 # but changed the string to the media directory
-LOGIN_REDIRECT_URL = 'about'
-LOGOUT_REDIRECT_URL = 'about'
+LOGIN_REDIRECT_URL = 'index'
+LOGOUT_REDIRECT_URL = 'index'
 
 
 
