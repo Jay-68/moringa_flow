@@ -1,13 +1,45 @@
 {% extends 'base.html' %}
 {% load bootstrap4 %}
+{% load crispy_forms_tags %}
 
 {% block content %}
+
 <div class="container">
-  <form method="POST">
-    {% csrf_token %}
-    {% bootstrap_form form %}
-    <input type="submit" class='btn btn-sm btn-primary' value="Login">
-  </form>
-</div>
+    <form method="POST">
+      {% csrf_token %}
+      {% bootstrap_form form %}
+      <input type="submit" class = 'btn btn-primary' value="Login">
+    </form>
+    </div>
+
+<!-- <div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-lg-6"> -->
+      <!-- Default form login -->
+      <!-- <form class="text-center border border-light p-5" method="POST">
+        <h4 class="h4 text-center pb-2">MoringaFlow</h4>
+        <h4 class="text-center">Log In</h4>
+        <hr> -->
+        <!-- Email -->
+        <!-- {{ form.username|as_crispy_field }} -->
+
+        <!-- Password -->
+        <!-- {{ form.password|as_crispy_field }} -->
+
+
+        <!-- Sign in button -->
+        <!-- <button class="btn btn-sm btn-dark-green" type="submit"> Log In</button> -->
+
+        <!-- Register -->
+        <!-- <p>Not a member?
+          <a href="{% url 'accounts:signup' %}">Sign Up</a> -->
+        <!-- </p> -->
+
+      <!-- </form> -->
+      <!-- Default form login -->
+    <!-- </div>
+  </div>
+</div> -->
+
 
 {% endblock %}

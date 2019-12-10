@@ -41,7 +41,7 @@
   <br>
       <strong>Answer:</strong> {{answer.body}}
   <a href="{% url 'questions:ans_single' pk=answer.pk %}">​<i class="fa fa-thumbs-o-up" style="font-size:36px"></i></a>
-  <p>By: <a href="{% url 'accounts:profile' slug=question.author.slug %}">{{answer.author}}</a>  Upvotes: {{answer.likes}}</p>
+  <p>By: <strong>{{answer.author}}</strong>   Upvotes: {{answer.likes}}</p>
   {% endfor %}
 
   <h5>This Question has not been solved yet. <br> Provide your answer below.</h5>
