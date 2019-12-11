@@ -2,6 +2,8 @@ from django.urls import path
 from django.contrib.auth import views as auth_views  # djangos built in auth
 from accounts import views
 from questions import views as v
+from django.conf import settings
+from django.conf.urls.static import static
 
 app_name = 'accounts'
 
