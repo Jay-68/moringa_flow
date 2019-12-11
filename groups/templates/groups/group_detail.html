@@ -8,11 +8,13 @@
 </div>
 
 {% if group.questions.count == 0 %}
-<div class="container">
-  <h2>There are no Questions in this Group. <a href="{% url 'accounts:signup' %}" class="btn btn-sm btn-blue-grey">Sign
-      Up</a> to Ask questions.</h2>
+<div class="container text-center">
+  <h4>There are no Questions in this Group. Be the first to <a class="btn btn-dark-green btn-sm" href="{% url 'create_question' %}">Ask a Question</a></h4>
 
   {% else %}
+  <h3 class="text-center font-weight-bold">
+    Recently asked questions
+  </h3>
   {% for question in group.questions.all %}
   <!-- Need for loop to go through each one -->
   <ul>

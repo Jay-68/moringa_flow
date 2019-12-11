@@ -4,7 +4,6 @@ from django.contrib.auth.forms import UserCreationForm
 
 
 class UserCreateForm(UserCreationForm):
-    class Meta():
-        fields = ('username', 'email',
-                  'password1', 'password2', 'bio', 'image')
-        model = get_user_model()
+	class Meta():
+		fields = ('username','email','first_name','last_name','password1','password2','bio','image','location')
+		model = get_user_model()

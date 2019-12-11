@@ -15,7 +15,7 @@
         </div>
 
         <!-- Content -->
-        <div class="card-body grey darken-1">
+        <div class="card-body">
             <!-- Name -->
             <h4 class="font-weight-bold text-center card-title">{{user.username}}</h4>
             <!-- Quotation -->
@@ -25,21 +25,24 @@
             <h2>Questions Asked </h2>
 
             {% for question in user_question %}
-
-            <a href="{% url 'questions:question_single' slug=question.slug%}">{{question.name}}</a>
-
+            <ul>
+                <li>
+                    <a href="{% url 'questions:question_single' slug=question.slug%}">{{question.name}}</a>
+                </li>
+            </ul>
             {% endfor %}
+            <hr>
 
             <h2>Questions Answered</h2>
             {% for answer in user_answer %}
-
-            <a href="{% url 'questions:question_single' slug=answer.question.slug %}">{{answer.body}}</a>
-            <br />
-
-
+            <ul>
+                <li>
+                    <a href="{% url 'questions:question_single' slug=answer.question.slug %}">{{answer.body}}</a>
+                </li>
+            </ul>
             {% endfor %}
+            <hr>
         </div>
-
     </div>
     <!-- Card -->
 </div>
@@ -52,7 +55,7 @@
         {% endif %}
 
         <span class="current">
-            Page {{ user_question.number }} of {{ user_question.paginator.num_pages }}.
+            Page {{ user_question.number }} of {{ user_question.paginator.num_pages }}
         </span>
 
         {% if user_question.has_next %}

@@ -1,8 +1,11 @@
 <!--Navbar-->
 <nav class="navbar sticky-top navbar-expand-lg navbar-light mb-2 nav-font">
-
+{% if user.is_authenticated %}
+<a class="navbar-brand" href="{% url 'home' %}">MoringaFlow</a>
+{% else %}
+<a class="navbar-brand" href="{% url 'index' %}">MoringaFlow</a>
+{% endif %}
   <!-- Navbar brand -->
-  <a class="navbar-brand" href="{% url 'home' %}">MoringaFlow</a>
 
   <!-- Collapse button -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
