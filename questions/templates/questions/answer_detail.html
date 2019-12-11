@@ -1,26 +1,29 @@
 {% extends 'base.html' %}
 {% block content %}
-<h5> This is the answer you have selected: {{answer.body}}
-  <br />
-  This is for the question: {{answer.question.name}}
-  <br />
-  Use the buttons below to either confirm liking this post or go back to the question</h5>
 
-{% if user.is_authenticated %}
-<a href="javascript:{document.getElementById('upvote').submit()}"><button class="btn btn-primary btn-sm">Confirm
-    Liking this answer</button></a>
-{% endif %}
+<div class="container">
+  <div class="jumbotron">
+    <h5 class="font-weight-bold">Question</h5>
+    <p>
+      {{answer.question.name}}
+    </p>
+    <h6 class="font-weight-bold">Answer</h6>
+    <p>
+        {{answer.body}}
+    </p>
+    <div class="btn-group btn-group-sm pt-5" role="group" aria-label="Basic example">
+        {% if user.is_authenticated %}
+        <a href="javascript:{document.getElementById('upvote').submit()}"
+          class="btn btn-sm btn-info text-dark font-weight-bold">Upvote Answer</a>
+        <a href="{% url 'questions:question_single' slug=answer.question.slug %}"
+          class="btn btn-sm btn-success text-dark font-weight-bold">Back to Question</a>
+        {% endif %}
+        {% if user.is_authenticated and answer.author == user %}
+        <a class="btn btn-sm btn-danger text-dark font-weight-bold"
+          href="{% url 'questions:remove_answer' pk=answer.pk %}">Delete Answer</a>
+        {% endif %}
+      </div>
+  </div>
+</div>
 
-<a href="{% url 'questions:question_single' slug=answer.question.slug %}" class="btn btn-warning btn-sm">Take me back
-  to the Question</a>
-
-<form id="upvote" method="POST" action="{% url 'questions:upvote' pk=answer.pk %}">
-  {% csrf_token %}
-  <input type="hidden">
-</form>
-
-<br />
-{% if user.is_authenticated and answer.author == user %}
-<a href="{% url 'questions:remove_answer' pk=answer.pk %}" class="btn btn-small btn-danger">Delete</a>
-{% endif %}
 {% endblock %}
