@@ -77,7 +77,7 @@ class DetailAnswer(DetailView):
     model = Answer
     template_name = 'questions/answer_detail.html'
 
-
+@login_required
 def SearchQuests(request):
     if request.method == 'GET':
         query = request.GET.get('q')
@@ -88,7 +88,7 @@ def SearchQuests(request):
     else:
         return render(request, 'questions/question_list.html')
 
-
+@login_required
 def UserProfileQuestion(request, slug):
     user = User.objects.get(slug=slug)
     user_question = Question.objects.filter(
