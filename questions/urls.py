@@ -13,3 +13,6 @@ urlpatterns = [
     path('answer/<pk>', views.DetailAnswer.as_view(), name='ans_single'),
     path('results/', views.SearchQuests, name="search_quests"),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
